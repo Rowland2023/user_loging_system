@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from youtube_search import YoutubeSearch
-from .models import playlist_user
+from .models import PlaylistUser
 import json
 import os
 from django.conf import settings
@@ -138,3 +138,22 @@ def add_playlist(request):
             )
         except Exception:
             pass
+
+# Rejistration with welcome message
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+def register_view(request):
+    """
+    Handles user registration using Django's built-in UserCreationForm.
+    """
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, f"Welcome, {user.username}! Your account has been created.")
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
+
