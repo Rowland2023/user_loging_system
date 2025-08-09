@@ -38,7 +38,7 @@ ROOT_URLCONF = 'youtify.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Custom templates folder
+        'DIRS': [],  # or include a global templates directory if you use one
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -50,6 +50,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'youtify.wsgi.application'
 
@@ -114,4 +115,4 @@ EMAIL_HOST_PASSWORD = 'your_app_password'
 
 
 
-#AUTH_USER_MODEL = 'main.CustomUser'
+AUTH_USER_MODEL = 'main.CustomUser'

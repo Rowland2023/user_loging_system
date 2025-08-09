@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import PlaylistUser, PlaylistSong
+from .models import CustomUser, PlaylistSong
 
-# Register your models here.
-admin.site.register(PlaylistUser)
+admin.site.register(CustomUser)
 admin.site.register(PlaylistSong)
