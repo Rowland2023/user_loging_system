@@ -40,6 +40,15 @@ active
 <!--      </div>-->
 
 </div>
+<!-- player.html or playlist.html -->
+<div class="account-actions" style="text-align:right; margin:20px;">
+  {% if user.is_authenticated %}
+    <form method="POST" action="{% url 'logout' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Log out</button>
+    </form>
+  {% endif %}
+</div>
 
 
 

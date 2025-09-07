@@ -1,18 +1,15 @@
 import os
 from pathlib import Path
 
-# Base directory
+# ─── BASE DIRECTORY ─────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2rue53h9#2220t(1c$tx)&-2=*i0n138ug5)5lq$17)vpi#4at'
+# ─── SECURITY SETTINGS ──────────────────────────────────────────────────────
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-default-secret-key')  # Use env var in production
+DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'True'
+ALLOWED_HOSTS = ['*'] if DEBUG else ['yourdomain.com']  # Replace with actual domain in production
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']  # Use specific domains in production
-
-# Application definition
+# ─── APPLICATION CONFIGURATION ──────────────────────────────────────────────
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -20,7 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main',  # Your custom app
+    'main',  # Custom app
 ]
 
 MIDDLEWARE = [
@@ -35,10 +32,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'youtify.urls'
 
+# ─── TEMPLATES ──────────────────────────────────────────────────────────────
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Custom templates folder
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -53,7 +51,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'youtify.wsgi.application'
 
-# Database
+# ─── DATABASE CONFIGURATION ─────────────────────────────────────────────────
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -61,7 +59,7 @@ DATABASES = {
     }
 }
 
-# Password validation
+# ─── PASSWORD VALIDATION ────────────────────────────────────────────────────
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -69,32 +67,39 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internationalization
+# ─── INTERNATIONALIZATION ───────────────────────────────────────────────────
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'Africa/Lagos'  # Localized for Nigeria
+TIME_ZONE = 'Africa/Lagos'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Static files
+# ─── STATIC & MEDIA FILES ───────────────────────────────────────────────────
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-    '/var/www/static/',
-]
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # For collectstatic in production
 
-# Media files (optional if you plan to upload images)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Login settings
-LOGIN_URL = '/login/'  # Redirect unauthenticated users
-LOGIN_REDIRECT_URL = '/'  # After successful login
-LOGOUT_REDIRECT_URL = '/login/'  # After logout
+# ─── AUTHENTICATION REDIRECTS ───────────────────────────────────────────────
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/'
 
-# CSRF settings (optional for extra security)
+# ─── SECURITY HEADERS ───────────────────────────────────────────────────────
 CSRF_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_SECURE = not DEBUG
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
-# Default primary key field type
+# ─── EMAIL CONFIGURATION ────────────────────────────────────────────────────
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'rowlandobi1980@gmail.com'
+EMAIL_HOST_PASSWORD = 'aspt bvlx hrkm inld' 
+
+# ─── DEFAULT PRIMARY KEY FIELD TYPE ─────────────────────────────────────────
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
