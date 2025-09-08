@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # LushLyrics Login System 🎶🔐
 
 A secure and user-friendly login system built with Django for the LushLyrics platform.
@@ -84,30 +84,20 @@ The goal of this project is to implement a robust authentication workflow that e
 - **Templating**: Django Templates
 - **Static Files**: Managed via Django's `static` system
 
-## 🚀 Next Steps (Optional Enhancements)
+🚀 How to Run Locally
+bash
+git clone https://github.com/Rowland2023/user_loging_system.git
+cd user_loging_system
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
 
-To further improve the system and impress potential employers, consider building:
-
-- **Email Confirmation After Registration**  
-  Verify user email before activating accounts.
-
-- **“Remember Me” Functionality**  
-  Allow users to stay logged in across sessions.
-
-- **AJAX Form Submission**  
-  Improve UX with real-time validation and feedback.
-
-- **Mobile Responsiveness**  
-  Optimize layout and styling for smaller screens.
-
-- **Unit Tests**  
-  Add automated tests for login, registration, and password reset flows.
-
+Visit http://127.0.0.1:8000/ in your browser.
 ## 📂 Project Structure
 
+💡 Why This Project Matters
+This project reflects my ability to build secure, user-centric web applications using Django. It demonstrates backend logic, session management, form validation, and email integration — all essential skills for full-stack development.
 
-(env)$ cd Lushlyrics-insecure
-(env)$ python manage.py runserver
-```
-And navigate to `http://127.0.0.1:8000/`.
 
