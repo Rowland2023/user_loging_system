@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # LushLyrics Login System 🎶🔐
 
 A secure and user-friendly login system built with Django for the LushLyrics platform.
