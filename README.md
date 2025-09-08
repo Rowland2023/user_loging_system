@@ -1,4 +1,17 @@
+# LushLyrics Login System 🎶🔐
 
+A secure and user-friendly login system built with Django for the LushLyrics platform.
+
+## Features
+- User registration and login
+- Password reset via email
+- Responsive UI with screenshots
+- SQLite database integration
+
+## Screenshots
+![Homepage](screenshorts/Screenshot_Homepage_Lushlyrics_website.jpeg)
+![Sign-on Page](screenshorts/Screenshot_Lushlyrics_sign_on_page.jpeg)
+![Email Confirmation](screenshorts/Screenshot_Check_Your_Email_page.jpeg)
 
 
 ## Setup
@@ -34,6 +47,7 @@ And navigate to `http://127.0.0.1:8000/demo`.
 # Youttify Authentication System
 
 Welcome to **Youttify**, a secure and user-friendly authentication system built for the **Lushlyrics** platform. This project demonstrates a complete user login experience using Django, with a focus on functionality, usability, and reliability.
+
 
 ## 🔐 Project Overview
 

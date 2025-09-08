@@ -1,0 +1,2 @@
+echo "Lushlyrics-insecure/" >> .gitignore
+git add .gitignore
